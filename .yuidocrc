@@ -1,0 +1,8 @@
+{
+  "options": {
+    "paths": [
+      "lib"
+    ],
+    "outdir": "yuidocs"
+  }
+}
