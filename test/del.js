@@ -45,6 +45,8 @@ describe('delCommand', () => {
 
 			const output = yield loadFile('sample.json');
 
+			assert.ok(inspect.output[1]);
+			assert.ok(inspect.output[1].match(/Are you sure to remove key 'foo.bar'/));
 			assert.deepEqual(output, expectedOutput);
 		}));
 
