@@ -25,7 +25,7 @@ describe('delCommand', () => {
 			fs.restore();
 		});
 
-		it('removes a key', o_o(function * () {
+		it('removes a key when confirmed', o_o(function * () {
 			const expectedOutput = {
 				foz: {
 					baz: 'Sed lacinia dolor sed blandit aliquam.'
@@ -35,10 +35,42 @@ describe('delCommand', () => {
 			const inspect = stdout.inspect();
 			const input = stdin();
 
+			setTimeout(() => {
+				input.send('y');
+				input.send(null);
+			});
+
 			yield delCommand('sample.json', 'foo.bar', yield);
 
-			input.send('y');
-			input.send(null);
+			inspect.restore();
+			input.restore();
+
+			const output = yield loadFile('sample.json');
+
+			assert.ok(inspect.output[1]);
+			assert.ok(inspect.output[1].match(/Are you sure to remove key 'foo.bar'/));
+			assert.deepEqual(output, expectedOutput);
+		}));
+
+		it('does nothing when not confirmed', o_o(function * () {
+			const expectedOutput = {
+				foo: {
+					bar: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+				},
+				foz: {
+					baz: 'Sed lacinia dolor sed blandit aliquam.'
+				}
+			};
+
+			const inspect = stdout.inspect();
+			const input = stdin();
+
+			setTimeout(() => {
+				input.send('n');
+				input.send(null);
+			});
+
+			yield delCommand('sample.json', 'foo.bar', yield);
 
 			inspect.restore();
 			input.restore();
