@@ -2,7 +2,7 @@ import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
 import { stdout } from 'test-console';
-import findCommand from '../lib/commands/find';
+import findCommand from '../src/commands/find';
 
 describe('findCommand', () => {
 	context('given a sample file', () => {

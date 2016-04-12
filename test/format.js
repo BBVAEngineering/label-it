@@ -1,8 +1,8 @@
 import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
-import loadFile from '../lib/helpers/load-file';
-import formatCommand from '../lib/commands/format';
+import loadFile from '../src/helpers/load-file';
+import formatCommand from '../src/commands/format';
 
 describe('formatCommand', () => {
 	context('given a sample file', () => {

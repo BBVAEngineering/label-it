@@ -2,7 +2,7 @@ import fs from 'fs';
 import mockFs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
-import convertCommand from '../lib/commands/convert';
+import convertCommand from '../src/commands/convert';
 
 describe('convertCommand', () => {
 	context('given a sample file', () => {

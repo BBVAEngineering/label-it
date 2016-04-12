@@ -2,7 +2,7 @@ import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
 import { stdout } from 'test-console';
-import checkCommand from '../lib/commands/check';
+import checkCommand from '../src/commands/check';
 
 describe('checkCommand', () => {
 	context('given two sample files', () => {

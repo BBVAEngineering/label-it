@@ -3,8 +3,8 @@ import o_o from 'yield-yield';
 import assert from 'assert';
 import { stdout } from 'test-console';
 import { stdin } from 'mock-stdin';
-import loadFile from '../lib/helpers/load-file';
-import addCommand from '../lib/commands/add';
+import loadFile from '../src/helpers/load-file';
+import addCommand from '../src/commands/add';
 
 describe('addCommand', () => {
 	context('given a sample file', () => {

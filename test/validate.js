@@ -2,7 +2,7 @@ import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
 import { stdout } from 'test-console';
-import validateCommand from '../lib/commands/validate';
+import validateCommand from '../src/commands/validate';
 
 describe('validateCommand', () => {
 	context('given a sample file', () => {
