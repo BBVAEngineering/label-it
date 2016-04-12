@@ -1,6 +1,15 @@
-require('babel-register')({
-	only: /label-it\/lib/
-});
-require('babel-polyfill');
+/* eslint-disable */
+var pkg = require('./package'), mod;
 
-module.exports = require('./lib/label-it').default;
+if (pkg._id) {
+    mod = require('./lib/label-it');
+} else {
+    require('babel-polyfill');
+    require('babel-register')({
+        only: /label-it\/src/
+    });
+
+    mod = require('./src/label-it');
+}
+
+module.exports = mod.default;
