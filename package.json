@@ -1,6 +1,6 @@
 {
   "name": "label-it",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "",
   "preferGlobal": true,
@@ -17,7 +17,7 @@
     "docs": "node_modules/.bin/yuidoc -c .yuidocrc >/dev/null",
     "check": "node_modules/.bin/check-dependencies",
     "mocha": "node_modules/.bin/mocha --compilers js:babel-core/register --require babel-polyfill --recursive test",
-    "postinstall": "node_modules/.bin/babel --out-dir lib src >/dev/null"
+    "postinstall": "node_modules/.bin/babel --out-dir lib src"
   },
   "bin": {
     "labelit": "bin/index.js",
