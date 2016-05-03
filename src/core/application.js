@@ -7,6 +7,7 @@ import findCommand from '../commands/find';
 import validateCommand from '../commands/validate';
 import formatCommand from '../commands/format';
 import checkCommand from '../commands/check';
+import mergeCommand from '../commands/merge';
 import handleException from '../helpers/handle-exception';
 import eventer from './eventer';
 
@@ -53,6 +54,10 @@ class Application {
 			.option('-t, --threshold [number]', 'threshold indicator of string matching (0 - 100) (Default: 75)')
 			.action(this.handleFindCommand.bind(this));
 
+		commander.command('merge <master> <slave...>')
+			.description('merge keys within master and slaves')
+			.action(this.handleMergeCommand.bind(this));
+
 		commander.command('*', null, { noHelp: true })
 			.action(this.handleHelpCommand);
 
@@ -93,6 +98,10 @@ class Application {
 
 	handleFindCommand(file, phrase, options) {
 		findCommand(file, phrase, options, handleException);
+	}
+
+	handleMergeCommand(master, slaves) {
+		mergeCommand(master, slaves, handleException);
 	}
 
 }
