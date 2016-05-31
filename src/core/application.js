@@ -3,6 +3,8 @@ import pkg from '../../package';
 import addCommand from '../commands/add';
 import delCommand from '../commands/del';
 import convertCommand from '../commands/convert';
+import multilanguageFilesCommand from'../commands/multilanguageFiles';
+import multilanguageAppCommand from'../commands/multilanguageApp';
 import findCommand from '../commands/find';
 import validateCommand from '../commands/validate';
 import formatCommand from '../commands/format';
@@ -35,6 +37,14 @@ class Application {
 		commander.command('convert <input> <output>')
 			.description('convert json file to js-es6')
 			.action(this.handleConvertCommand.bind(this));
+
+		commander.command('multilanguageFiles <input> <output>')
+			.description('compare multi-language files')
+			.action(this.handlemultilanguageFilesCommand.bind(this));
+
+		commander.command('multilanguageApp <input> <output>')
+			.description('compare .hbs .js files to languages files')
+			.action(this.handlemultilanguageAppCommand.bind(this));
 
 		commander.command('check <master> <slave...>')
 			.description('check for duplicated keys within master and slaves')
@@ -82,6 +92,14 @@ class Application {
 
 	handleConvertCommand(input, output) {
 		convertCommand(input, output, handleException);
+	}
+
+	handlemultilanguageFilesCommand(input, output) {
+		multilanguageFilesCommand(input, output, handleException);
+	}
+
+	handlemultilanguageAppCommand(input, output) {
+		multilanguageAppCommand(input, output, handleException);
 	}
 
 	handleCheckCommand(master, slaves) {
