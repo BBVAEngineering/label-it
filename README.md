@@ -5,7 +5,7 @@
 ## Install
 
 ```
-$ npm install -g git+https://descinet.bbva.es/stash/scm/~e043699/label-it.git
+$ npm install -g git+https://descinet.bbva.es/stash/scm/buzz/label-it.git
 ```
 
 ## Usage
