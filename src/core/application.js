@@ -2,9 +2,8 @@ import commander from 'commander';
 import pkg from '../../package';
 import addCommand from '../commands/add';
 import delCommand from '../commands/del';
-import convertCommand from '../commands/convert';
-import multilanguageFilesCommand from'../commands/multilanguageFiles';
-import multilanguageAppCommand from'../commands/multilanguageApp';
+import multilanguageFilesCommand from '../commands/multilanguageFiles';
+import multilanguageAppCommand from '../commands/multilanguageApp';
 import findCommand from '../commands/find';
 import validateCommand from '../commands/validate';
 import formatCommand from '../commands/format';
@@ -33,10 +32,6 @@ class Application {
 		commander.command('del <file> <key>')
 			.description('remove label with key from json file')
 			.action(this.handleDelCommand.bind(this));
-
-		commander.command('convert <input> <output>')
-			.description('convert json file to js-es6')
-			.action(this.handleConvertCommand.bind(this));
 
 		commander.command('multilanguageFiles <input> <output>')
 			.description('compare multi-language files')
@@ -88,10 +83,6 @@ class Application {
 
 	handleDelCommand(file, key) {
 		delCommand(file, key, handleException);
-	}
-
-	handleConvertCommand(input, output) {
-		convertCommand(input, output, handleException);
 	}
 
 	handlemultilanguageFilesCommand(input, output) {

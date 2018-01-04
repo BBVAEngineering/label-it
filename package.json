@@ -1,6 +1,6 @@
 {
   "name": "label-it",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "description": "",
   "preferGlobal": true,
@@ -35,7 +35,7 @@
     "eslint": "2.9.0",
     "eslint-config-bbva": "1.0.0",
     "mocha": "2.4.5",
-    "mock-fs": "3.8.0",
+    "mock-fs": "4.4.2",
     "test-console": "1.0.0",
     "yuidocjs": "0.10.0",
     "babel-register": "6.6.5"
@@ -49,7 +49,7 @@
     "char-spinner": "1.0.1",
     "commander": "2.9.0",
     "debug": "2.2.0",
-    "dot-object": "1.4.1",
+    "dot-object": "1.7.0",
     "inquirer": "0.12.0",
     "jsonlint": "1.6.2",
     "lodash": "4.6.1",

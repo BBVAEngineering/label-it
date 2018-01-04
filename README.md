@@ -12,31 +12,55 @@ $ npm install -g git+https://descinet.bbva.es/stash/scm/buzz/label-it.git
 
 ### Add a label
 
-TBW.
+```
+$  label-it add [options] <file> <key> <phrase> 
+```
+
+Add label with key and phrase to json file
 
 ### Remove a label
 
-TBW.
+```
+$  label-it  del <file> <key> 
+```
 
-### Convert json to ES6
-
-TBW.
+Remove label with key from json file
 
 ### Files checker
+```
+$  label-it check <master> <slave...>
+```
 
-TBW.
+Check for duplicated keys within master and slaves
 
 ### Integrity validation
+```
+$  label-it   validate [options] <file> 
+```
 
-TBW.
+Validate json file of similar entries
 
 ### Formatter
+```
+$  label-it  format <file> 
+```
 
-TBW.
+Format json file sorting keys
 
 ### Finder
+```
+$  label-it  find [options] <file> <phrase>
+```
 
-TBW.
+Find a phrase in a json file
+
+### Merge files
+
+```
+$  label-it  merge <master> <slave...>
+```
+
+Merge keys within master and slaves
 
 ### Help
 

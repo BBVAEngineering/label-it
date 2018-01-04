@@ -3,59 +3,66 @@ import o_o from 'yield-yield';
 import formatJSON from '../helpers/format-json';
 import compareId from '../helpers/compare-id';
 
-var spanishKeys;
-var sourceJsonFile;
+let spanishKeys;
+let sourceJsonFile;
 
-export default o_o(function * multilanguageAppCommand(filepath, jsonFile) {
+export default o_o(function* multilanguageAppCommand(filepath, jsonFile) {
 	spanishKeys = formatJSON(jsonFile);
 	sourceJsonFile = jsonFile;
 	getFilesRecursive(filepath);
 });
 
-	function getFilesRecursive (filepath) {
-		var fileContents = fs.readdirSync(filepath), stats;
-		fileContents.forEach(function (fileName) {
-			stats = fs.lstatSync(filepath + '/' + fileName);
-			if (stats.isDirectory()) {
-				getFilesRecursive(filepath + '/' + fileName);
-			} else {
-				if (fileName === "route.js" || fileName === "controller.js") {
-					trataFicheroJS(filepath + '/' + fileName);
-				}
-				else if (fileName === "template.hbs") {
-					trataFicheroHBS(filepath + '/' + fileName);
-				}
-			}
-		});
-	}
+function getFilesRecursive(filepath) {
+	// eslint-disable-next-line no-sync
+	const fileContents = fs.readdirSync(filepath);
+	let stats;
+	fileContents.forEach(function (fileName) {
+		// eslint-disable-next-line no-sync
+		stats = fs.lstatSync(filepath + '/' + fileName);
+		if (stats.isDirectory()) {
+			getFilesRecursive(filepath + '/' + fileName);
+		} else if (fileName === "route.js" || fileName === "controller.js") {
+			trataFicheroJS(filepath + '/' + fileName);
+		} else if (fileName === "template.hbs") {
+			trataFicheroHBS(filepath + '/' + fileName);
+		}
+	});
+}
 
-	function trataFicheroJS(fileName) {
-		fs.readFile(fileName, 'utf8', (err, data) => {
-			var patron = /Ember.I18n.t\('[A-Za-z\.]+'/g;
-			var  matches;
-			var array = [];
-			while ((matches = patron.exec(data)) != null) {
-				matches = JSON.stringify(matches);
-				matches = matches.replace(/Ember.I18n.t/g, '').replace(/[^aA-zZ\.+0-9]/g, '').replace(/[\[+\]]/g, '');
-				array.push(matches);
-			}
-			compareId(array, spanishKeys, fileName, sourceJsonFile);
-		});
-	}
+function trataFicheroJS(fileName) {
+	fs.readFile(fileName, 'utf8', (err, data) => {
+		if (err) {
+			throw Error(err);
+		}
 
-	function trataFicheroHBS(fileName) {
-		fs.readFile(fileName, 'utf8', (err, data) => {
-			var patron = /\{\{t\s'[A-Za-z0-9.]+'\}\}/g;
-			var matches;
-			var array = [];
-			while ( (matches = patron.exec(data) ) != null )
-			{
-				matches = JSON.stringify(matches);
-				matches = matches.replace(/\{+t\s/g, '').replace(/[^aA-zZ\.+0-9]/g, '').replace(/[\[+\]]/g, '');
-				array.push(matches);
-			}
-			compareId(array, spanishKeys, fileName, sourceJsonFile);
-		});
-	}
+		const patron = /Ember.I18n.t\('[A-Za-z\.]+'/g;
+		let matches;
+		const array = [];
 
+		while ((matches = patron.exec(data)) !== null) {
+			matches = JSON.stringify(matches);
+			matches = matches.replace(/Ember.I18n.t/g, '').replace(/[^aA-zZ\.+0-9]/g, '').replace(/[\[+\]]/g, '');
+			array.push(matches);
+		}
+		compareId(array, spanishKeys, fileName, sourceJsonFile);
+	});
+}
 
+function trataFicheroHBS(fileName) {
+	fs.readFile(fileName, 'utf8', (err, data) => {
+		if (err) {
+			throw Error(err);
+		}
+
+		const patron = /\{\{t\s'[A-Za-z0-9.]+'\}\}/g;
+		let matches;
+		const array = [];
+
+		while ((matches = patron.exec(data)) !== null) {
+			matches = JSON.stringify(matches);
+			matches = matches.replace(/\{+t\s/g, '').replace(/[^aA-zZ\.+0-9]/g, '').replace(/[\[+\]]/g, '');
+			array.push(matches);
+		}
+		compareId(array, spanishKeys, fileName, sourceJsonFile);
+	});
+}
