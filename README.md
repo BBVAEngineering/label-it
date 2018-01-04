@@ -1,11 +1,11 @@
 # label-it
 
-> label-it
+> Util for handle labels on json file
 
 ## Install
 
 ```
-$ npm install -g git+https://descinet.bbva.es/stash/scm/buzz/label-it.git
+$ npm install -g label-it
 ```
 
 ## Usage
