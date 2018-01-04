@@ -1,4 +1,5 @@
-# label-it
+# label-it[![Build Status](https://travis-ci.org/BBVAEngineering/label-it.svg?branch=master)](https://travis-ci.org/BBVAEngineering/label-it) [![GitHub version](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it.svg)](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it) [![Dependency Status](https://travis-ci.org/BBVAEngineering/label-it.svg)](https://travis-ci.org/BBVAEngineering/label-it)
+
 
 > Util for handle labels on json file
 
