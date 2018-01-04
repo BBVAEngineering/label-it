@@ -22,6 +22,25 @@ describe('addCommand', () => {
 			fs.restore();
 		});
 
+		it('adds a root key', o_o(function * () {
+			const expectedOutput = {
+				foo: {
+					bar: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+				},
+				foz: 'Sed lacinia dolor sed blandit aliquam.'
+			};
+
+			const inspect = stdout.inspect();
+
+			yield addCommand('sample.json', 'foz', 'Sed lacinia dolor sed blandit aliquam.', {}, yield);
+
+			inspect.restore();
+
+			const output = yield loadFile('sample.json');
+
+			assert.deepEqual(output, expectedOutput);
+		}));
+
 		it('adds a key', o_o(function * () {
 			const expectedOutput = {
 				foo: {

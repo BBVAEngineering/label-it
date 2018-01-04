@@ -1,4 +1,4 @@
 
 export default function stringify(object) {
-	return JSON.stringify(object, null, '  ');
+	return JSON.stringify(object, null, 2);
 }

@@ -1,11 +1,13 @@
 import getKeysFromJson from '../helpers/get-keys';
 import fs from 'fs';
 
-var keysJson;
+let keysJson;
 
 export default function formatJSON(fichero) {
-	var data = fs.readFileSync(fichero, "utf8");
-	var json = JSON.parse(data);
+	// eslint-disable-next-line no-sync
+	const json = JSON.parse(fs.readFileSync(fichero, 'utf8'));
+
 	keysJson = getKeysFromJson(json);
+
 	return keysJson;
 }
