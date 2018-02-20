@@ -14,7 +14,7 @@
     "prebuild": "npm run check && npm run lint -- --max-warnings 0",
     "build": "npm run mocha",
     "postbuild": "npm run docs",
-    "lint": "node_modules/.bin/eslint src test",
+    "lint": "node_modules/.bin/eslint */**",
     "docs": "node_modules/.bin/yuidoc -c .yuidocrc >/dev/null",
     "check": "node_modules/.bin/check-dependencies",
     "mocha": "node_modules/.bin/mocha --compilers js:babel-core/register --require babel-polyfill --recursive test",
