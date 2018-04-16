@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "check-dependencies": "0.12.0",
-    "eslint": "2.9.0",
-    "eslint-config-bbva": "1.0.0",
+    "eslint": "^4.0.0",
+    "eslint-config-bbva": "^2.0.0",
     "mocha": "2.4.5",
     "mock-fs": "4.4.2",
     "test-console": "1.0.0",
