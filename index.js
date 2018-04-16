@@ -1,15 +1,17 @@
-/* eslint-disable */
-var pkg = require('./package'), mod;
+'use strict';
+
+const pkg = require('./package');
+let mod;
 
 if (pkg._id) {
-    mod = require('./lib/label-it');
+	mod = require('./lib/label-it');
 } else {
-    require('babel-polyfill');
-    require('babel-register')({
-        only: /label-it\/src/
-    });
+	require('babel-polyfill');
+	require('babel-register')({
+		only: /label-it\/src/
+	});
 
-    mod = require('./src/label-it');
+	mod = require('./src/label-it');
 }
 
 module.exports = mod.default;

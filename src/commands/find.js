@@ -16,6 +16,7 @@ export default o_o(function * findCommandGenerator(file, phrase, options) {
 	for (const [key, result] of entries(found)) {
 		const percentage = Math.round(result.similarity * totalPercentage, 2);
 
+		// eslint-disable-next-line no-console
 		console.log(`[${percentage}] ${key} => '${result.label}'`);
 	}
 });

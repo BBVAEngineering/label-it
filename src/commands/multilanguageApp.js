@@ -1,30 +1,30 @@
 import fs from 'fs';
-import o_o from 'yield-yield';
 import formatJSON from '../helpers/format-json';
 import compareId from '../helpers/compare-id';
 
 let spanishKeys;
 let sourceJsonFile;
 
-export default o_o(function* multilanguageAppCommand(filepath, jsonFile) {
+export default function multilanguageAppCommand(filepath, jsonFile) {
 	spanishKeys = formatJSON(jsonFile);
 	sourceJsonFile = jsonFile;
 	getFilesRecursive(filepath);
-});
+}
 
 function getFilesRecursive(filepath) {
 	// eslint-disable-next-line no-sync
 	const fileContents = fs.readdirSync(filepath);
 	let stats;
-	fileContents.forEach(function (fileName) {
+
+	fileContents.forEach((fileName) => {
 		// eslint-disable-next-line no-sync
-		stats = fs.lstatSync(filepath + '/' + fileName);
+		stats = fs.lstatSync(`${filepath}/${fileName}`);
 		if (stats.isDirectory()) {
-			getFilesRecursive(filepath + '/' + fileName);
-		} else if (fileName === "route.js" || fileName === "controller.js") {
-			trataFicheroJS(filepath + '/' + fileName);
-		} else if (fileName === "template.hbs") {
-			trataFicheroHBS(filepath + '/' + fileName);
+			getFilesRecursive(`${filepath}/${fileName}`);
+		} else if (fileName === 'route.js' || fileName === 'controller.js') {
+			trataFicheroJS(`${filepath}/${fileName}`);
+		} else if (fileName === 'template.hbs') {
+			trataFicheroHBS(`${filepath}/${fileName}`);
 		}
 	});
 }
