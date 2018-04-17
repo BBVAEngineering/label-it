@@ -17,14 +17,16 @@ function getFilesRecursive(filepath) {
 	let stats;
 
 	fileContents.forEach((fileName) => {
+		const path = `${filepath}/${fileName}`;
+
 		// eslint-disable-next-line no-sync
-		stats = fs.lstatSync(`${filepath}/${fileName}`);
+		stats = fs.lstatSync(path);
 		if (stats.isDirectory()) {
-			getFilesRecursive(`${filepath}/${fileName}`);
+			getFilesRecursive(path);
 		} else if (fileName === 'route.js' || fileName === 'controller.js') {
-			trataFicheroJS(`${filepath}/${fileName}`);
+			trataFicheroJS(path);
 		} else if (fileName === 'template.hbs') {
-			trataFicheroHBS(`${filepath}/${fileName}`);
+			trataFicheroHBS(path);
 		}
 	});
 }
