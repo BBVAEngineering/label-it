@@ -13,7 +13,6 @@ import handleException from '../helpers/handle-exception';
 import eventer from './eventer';
 
 class Application {
-
 	constructor(options = {}) {
 		this.options = options;
 	}
@@ -112,7 +111,6 @@ class Application {
 	handleMergeCommand(master, slaves) {
 		mergeCommand(master, slaves, handleException);
 	}
-
 }
 
 export default Application;

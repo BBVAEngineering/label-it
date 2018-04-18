@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import o_o from 'yield-yield';
 import async from 'async';
 import { difference } from 'lodash/array';

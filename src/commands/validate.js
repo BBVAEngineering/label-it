@@ -23,6 +23,7 @@ export default o_o(function * validateCommandGenerator(file, options) {
 			if (similarity >= threshold) {
 				const percentage = Math.round(similarity * totalPercentage, 2);
 
+				// eslint-disable-next-line no-console
 				console.log(`[${percentage}] ${keyA} <=> ${keyB}`);
 			}
 		}

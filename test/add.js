@@ -1,3 +1,4 @@
+/* eslint max-nested-callbacks: ["error", 4]*/
 import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';
@@ -63,6 +64,7 @@ describe('addCommand', () => {
 		}));
 
 		it('prompts confirmation on similar keys', o_o(function * () {
+			const ORDER = 3;
 			const expectedOutput = {
 				foo: {
 					bar: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
@@ -88,11 +90,12 @@ describe('addCommand', () => {
 			const output = yield loadFile('sample.json');
 
 			assert.ok(inspect.output[1], '[100] foo.bar => \'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-			assert.ok(inspect.output[3].match(/Are you sure to add key 'foz.baz'/));
+			assert.ok(inspect.output[ORDER].match(/Are you sure to add key 'foz.baz'/));
 			assert.deepEqual(output, expectedOutput);
 		}));
 
 		it('does nothing when confirmation is no', o_o(function * () {
+			const ORDER = 3;
 			const expectedOutput = {
 				foo: {
 					bar: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
@@ -115,7 +118,7 @@ describe('addCommand', () => {
 			const output = yield loadFile('sample.json');
 
 			assert.ok(inspect.output[1], '[100] foo.bar => \'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-			assert.ok(inspect.output[3].match(/Are you sure to add key 'foz.baz'/));
+			assert.ok(inspect.output[ORDER].match(/Are you sure to add key 'foz.baz'/));
 			assert.deepEqual(output, expectedOutput);
 		}));
 	});

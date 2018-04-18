@@ -1,3 +1,4 @@
+/* eslint max-nested-callbacks: ["error", 4]*/
 import fs from 'mock-fs';
 import o_o from 'yield-yield';
 import assert from 'assert';

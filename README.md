@@ -1,9 +1,15 @@
-# label-it[![Build Status](https://travis-ci.org/BBVAEngineering/label-it.svg?branch=master)](https://travis-ci.org/BBVAEngineering/label-it) [![GitHub version](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it.svg)](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it) [![Dependency Status](https://travis-ci.org/BBVAEngineering/label-it.svg)](https://travis-ci.org/BBVAEngineering/label-it)
+# label-it
 
+[![Build Status](https://travis-ci.org/BBVAEngineering/label-it.svg?branch=master)](https://travis-ci.org/BBVAEngineering/label-it)
+[![GitHub version](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it.svg)](https://badge.fury.io/gh/BBVAEngineering%2Flabel-it)
+[![npm version](https://badge.fury.io/js/label-it.svg)](https://badge.fury.io/js/label-it)
+[![Dependency Status](https://travis-ci.org/BBVAEngineering/label-it.svg)](https://travis-ci.org/BBVAEngineering/label-it)
 
-> Util for handle labels on json file
+Util for handle labels on json file
 
 ## Install
+
+Run the follow comand:
 
 ```
 $ npm install -g label-it
@@ -43,7 +49,7 @@ Validate json file of similar entries
 
 ### Formatter
 ```
-$  label-it  format <file> 
+$  label-it  format <file>
 ```
 
 Format json file sorting keys
@@ -124,3 +130,18 @@ $ npm run docs
 ```
 $ npm run lint
 ```
+## Contribute
+
+If you want to contribute to this addon, please read the [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/BBVAEngineering/label-it/tags).
+
+## Authors
+
+See the list of [contributors](https://github.com/BBVAEngineering/label-it/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

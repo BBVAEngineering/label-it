@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from 'fs';
 import o_o from 'yield-yield';
 import { str } from 'dot-object';
