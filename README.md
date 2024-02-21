@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # label-it
 
 [![Build Status](https://travis-ci.org/BBVAEngineering/label-it.svg?branch=master)](https://travis-ci.org/BBVAEngineering/label-it)
